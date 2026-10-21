@@ -18,7 +18,7 @@ export function isLocale(value: string): value is Locale {
 type Localized = Record<Locale, string>;
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://martynovskyi-portfolio.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://videografer.vercel.app";
 
 export const person = {
   name: "Viacheslav Martynovskyi",
@@ -26,6 +26,11 @@ export const person = {
   phoneDisplay: "+354 831 7611",
   phoneHref: "+3548317611",
   city: { en: "Reykjavík, Iceland", is: "Reykjavík, Ísland" } as Localized,
+  // Same personal Instagram as on the director site.
+  instagram: "https://www.instagram.com/slavamart_ov/",
+  // Same approved portrait as on the director site.
+  portrait: "/images/viacheslav-portrait.jpg",
+  directorSite: "https://martynovskyi-films.vercel.app/director",
   title: {
     en: "Videographer · Video director · Video producer",
     is: "Myndatökumaður · Leikstjóri · Framleiðandi",
@@ -190,7 +195,10 @@ export const ui = {
       primary: "Watch showreel",
       secondary: "Get in touch",
     },
+    scrollCue: "View work",
+    showreel: "Showreel",
     selected: "Selected live broadcasts",
+    directorSite: "Director website",
     allWork: "All work",
     role: "Role",
     play: "Play video",
@@ -262,7 +270,10 @@ export const ui = {
       primary: "Horfa á sýnishorn",
       secondary: "Hafa samband",
     },
+    scrollCue: "Skoða verkefni",
+    showreel: "Sýnishorn",
     selected: "Valdar beinar útsendingar",
+    directorSite: "Vefsíða leikstjóra",
     allWork: "Öll verkefni",
     role: "Hlutverk",
     play: "Spila myndband",

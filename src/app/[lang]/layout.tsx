@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Newsreader, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_URL, isLocale, locales, person, ui } from "@/content/portfolio";
 import "../globals.css";
 
-const serif = Cormorant_Garamond({
+// Same fonts as the director site.
+const newsreader = Newsreader({
   subsets: ["latin", "latin-ext"],
+  variable: "--font-newsreader",
   weight: ["400", "500"],
-  variable: "--font-serif",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const sans = Inter({
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-sans",
+  variable: "--font-inter",
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0a09",
+  themeColor: "#0b0b0a",
 };
 
 // Pre-build both language versions: /en and /is
@@ -55,12 +58,17 @@ export default async function LangLayout({
     telephone: person.phoneHref,
     address: { "@type": "PostalAddress", addressLocality: "Reykjavík", addressCountry: "IS" },
     url: `${SITE_URL}/${lang}`,
+    image: `${SITE_URL}${person.portrait}`,
+    sameAs: [person.instagram, person.directorSite],
   };
 
   return (
-    <html lang={lang} className={`${serif.variable} ${sans.variable}`}>
-      <body>
-        <a href="#main" className="skip-link">
+    <html lang={lang} className={`${newsreader.variable} ${inter.variable}`}>
+      <body className="bg-canvas font-sans text-ink antialiased">
+        <a
+          href="#main"
+          className="fixed left-3 top-3 z-50 -translate-y-20 bg-accent px-4 py-2 text-sm text-canvas focus:translate-y-0"
+        >
           {t.skip}
         </a>
         <Header lang={lang} t={t} />

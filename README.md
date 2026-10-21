@@ -1,14 +1,17 @@
-# Viacheslav Martynovskyi · Portfolio
+# Viacheslav Martynovskyi · Videographer portfolio
 
 Personal portfolio site in English and Icelandic: showreel, live broadcasts
 (with my role in each), bio, experience and contacts.
 
-Separate from the director site (`martynovskyi-films`); nothing is shared
-between the two repositories.
+Separate from the director site (`martynovskyi-films`), but built with the
+same stack and the same look: colours, fonts (Newsreader + Inter), header,
+menu, buttons, scroll cue and fade-in transitions were carried over from it.
+The portrait in `public/images/` is the one used on the director site.
 
 ## How it is built
 
-- [Next.js](https://nextjs.org) (App Router) + TypeScript, plain CSS.
+- [Next.js](https://nextjs.org) 15 (App Router) + TypeScript + Tailwind CSS 4,
+  same versions as the director site.
 - Every page exists twice: `/en/...` and `/is/...` (folder `src/app/[lang]`).
 - All texts and project data are in **one file**: `src/content/portfolio.ts`.
 - Videos show a thumbnail first; the YouTube player loads only after a click
@@ -22,7 +25,7 @@ between the two repositories.
 | --- | --- |
 | Add a project / video | `projects` in `src/content/portfolio.ts` (copy one block, change the YouTube id) |
 | Change a text | `ui.en` / `ui.is` in the same file |
-| Change colours or fonts | `:root` at the top of `src/app/globals.css` |
+| Change colours | `@theme` at the top of `src/app/globals.css` |
 
 Icelandic texts are a first draft: have them checked by a native speaker.
 Lines marked `CONFIRM` in `portfolio.ts` are worth double-checking.

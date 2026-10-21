@@ -1,17 +1,21 @@
-import Link from "next/link";
+import Button from "./Button";
+import Reveal from "./Reveal";
+import SectionLabel from "./SectionLabel";
 import type { Dictionary, Locale } from "@/content/portfolio";
 
 export default function ContactCta({ lang, t }: { lang: Locale; t: Dictionary }) {
   return (
-    <section className="section cta">
-      <div className="container">
-        <p className="eyebrow">{t.nav.contact}</p>
-        <h2>{t.ctaTitle}</h2>
-        <p>{t.ctaText}</p>
-        <Link href={`/${lang}/contact`} className="btn btn-primary">
-          {t.ctaButton}
-        </Link>
-      </div>
+    <section className="border-t border-line px-6 py-24 text-center sm:px-12 sm:py-32">
+      <Reveal>
+        <SectionLabel>{t.nav.contact}</SectionLabel>
+        <h2 className="mx-auto mt-5 max-w-2xl font-display text-4xl italic leading-tight text-ink sm:text-5xl">
+          {t.ctaTitle}
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted">{t.ctaText}</p>
+        <div className="mt-10">
+          <Button href={`/${lang}/contact`}>{t.ctaButton}</Button>
+        </div>
+      </Reveal>
     </section>
   );
 }
