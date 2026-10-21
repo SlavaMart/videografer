@@ -18,7 +18,7 @@ export function isLocale(value: string): value is Locale {
 type Localized = Record<Locale, string>;
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://videografer.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://videographer.vercel.app";
 
 export const person = {
   name: "Viacheslav Martynovskyi",
